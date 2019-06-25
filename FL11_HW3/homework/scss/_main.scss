@@ -1,0 +1,320 @@
+@mixin lineThrough {
+  content: "";
+  display: inline-block;
+  background: $sectionCardunderlineBg;
+  position: relative;
+}
+@mixin button {
+  width: 180px;
+  height: 60px;
+  background-color: $buttonCollor;
+  border: none;
+  border-radius: 3px;
+  color: $secondFontColor;
+  font-size: 22px;
+  font-weight: 600;
+  font-family: $mainFont;
+}
+@mixin section_underline() {
+  z-index: -1;
+  position: absolute;
+  display: inline-block;
+  left: 0px;
+  top: 24px;
+  height: 15px;
+  background-color: $sectionCardunderlineBg;
+}
+
+body {
+  
+  background-color: map-get($background,bodyBackgroud);
+
+  .header {
+    margin: 0 auto;
+    .header-wrap {
+      background: $backgroundImage;
+      width: 1536px;
+      height: 655px;
+      border-bottom-right-radius: 40% 40%;
+      padding: 25px 192px 220px;
+      position: relative;
+
+      .landing-logo {
+        img {
+          width: 55px;
+          height: 55px;
+        }
+        p {
+          position: relative;
+          font: xx-large $secondaryFont;
+          font-weight: bold;
+          color: $textColor;
+          top: -97px;
+          left: 74px;
+          letter-spacing: -1px;
+          span {
+            font-family: $secondaryFont;
+            position: inherit;
+            top: -12px;
+            left: 13px;
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            word-spacing: 2px;
+          }
+        }
+      }
+      .header_heading {
+        font-family: $mainFont;
+        font-size: 90px;
+        font-weight: 700;
+        color: $textColor;
+        position: relative;
+        top: -109px;
+        left: 1px;
+        line-height: 90px;
+        width: 640px;
+        word-wrap: break-word;
+        z-index: 4;
+        &::after {
+          @include lineThrough;
+          top: -76px;
+          z-index: -2;
+          width: 378px;
+          height: 32px;
+        }
+      }
+      .header_text {
+        width: 820px;
+        letter-spacing: 1px;
+        word-spacing: 1px;
+        font-family: $secondaryFont;
+        color: $textColor;
+        position: relative;
+        top: -243px;
+        white-space: pre-line;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 30px;
+      }
+      .header_button {
+        @include button;
+        position: relative;
+        top: -185px;
+        left: -2px;
+      }
+    }
+  }
+  .section {
+    width: 1920px;
+    .section_text {
+      position: relative;
+      margin-top: 46px;
+      margin-bottom: 45px;
+      word-spacing: -1px;
+      text-align: center;
+      margin-left: 246px;
+      font-family: $mainFont;
+      font-weight: 600;
+      font-size: 53px;
+      color: $textColor;
+
+      &::after {
+        @include lineThrough();
+        width: 238px;
+        height: 16px;
+        top: 3px;
+        left: -263px;
+        z-index: -1;
+      }
+    }
+    .section_card_wrap {
+      margin-left: 177px;
+      margin-right: 177px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      .section_card {
+        border-radius: 7px;
+        position: relative;
+        z-index: -2;
+        margin: 0 13px 13px;
+        padding: 27px;
+        max-width: 510px;
+        height: 520px;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-items: center;
+        background-color: $sectionCardBackground;
+
+        &:nth-child(3) .section_card_text {
+          padding-top: 15px;
+        }
+        &:nth-child(1) span {
+          @include section_underline();
+          width: 229px;
+        }
+        &:nth-child(2) span {
+          @include section_underline();
+          width: 192px;
+        }
+        &:nth-child(3) span {
+          @include section_underline();
+          width: 147px;
+        }
+
+        .section_card_img {
+          width: 100%;
+          height: 100%;
+          min-height: 295px;
+          max-height: 298px;
+          border-radius: 7px;
+        }
+        .section_card_heading {
+          position: relative;
+          margin-top: 18px;
+          margin-bottom: 0px;
+          flex-shrink: 0;
+          font-size: 30px;
+          font-weight: 600;
+          font-family: $mainFont;
+          color: $secondFontColor;
+        }
+        .section_card_text {
+          position: relative;
+          word-spacing: 1px;
+          margin-top: 20px;
+          margin-bottom: 15px;
+          text-align: center;
+          font-size: 20px;
+          font-family: $secondaryFont;
+          color: darken($secondFontColor, 25%);
+          line-height: 31px;
+        }
+      }
+    }
+    
+  }
+  
+  .footer {
+    @extend .header;
+    margin-top: 73px;
+    margin-left: 0px;
+    height: 300px;
+    width: 1920px;
+    padding-right: 0px;
+    background-color: $sectionCardBackground;
+    .footer-wrap {
+      
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .footer_logo {
+        
+        margin-left: 192px;
+        padding-top: 170px;
+        font-family: $mainFont;
+        color: $secondFontColor;
+        img {
+          width: 55px;
+          height: 55px;
+        }
+        
+        p {
+          position: relative;
+          font: xx-large $secondaryFont;
+          font-weight: bold;
+          color:darken($secondFontColor, 25%); 
+          top: -97px;
+          left: 74px;
+          letter-spacing: -1px;
+          span {
+            font-family: $secondaryFont;
+            position: inherit;
+            top: -12px;
+            left: 13px;
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            word-spacing: 2px;
+          }
+        }
+      }
+      
+      .footer_text {
+        padding-top: 20px;
+        padding-left: 62px;
+        font-family: $secondaryFont;
+        color: darken($secondFontColor,20%);
+        width: 380px;
+        font-size: 18px;
+        line-height: 24px;
+        word-spacing:0px;
+        
+      }
+      .footer-cr {
+        padding-top:27px;
+        font-size: 20px;
+        font-family: $secondaryFont;
+        color: darken($secondFontColor, 20%); 
+      }
+    }
+  }
+}
+.section_banner{
+  
+  left: 360px;
+  bottom: -163px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width:1198px;
+  height: 180px;
+  
+  z-index: 2;
+  border-radius: 6px;
+  background:$sectionBannerGradient;
+}
+
+.section_banner_heading{
+  margin:0px;
+  font-family: $mainFont;
+  font-size: 36px;
+  font-weight: 700;
+  color: $textColor;
+  word-spacing:0px;
+  letter-spacing: 1px;
+  &::after{
+    @include lineThrough();
+      content: "";
+      display: inline-block;
+      background: $sectionCardunderlineBg;
+      position: relative;
+      top: 6px;
+      left:-373px;
+      width: 80px;
+      height: 17px;
+      z-index: -3;
+    
+  }
+}
+.section_banner_text{
+  word-spacing: 0.1em;
+  font-size: 20px;
+  font-family: $mainFont;
+  color: darken($secondFontColor,20%);
+}
+
+.section_banner_text_wrap{
+  margin-left:125px;
+  margin-top: 0px;
+}
+.section_banner_button{
+  @include button();
+  position: relative;
+  left:160px;
+}
